@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="scp-pfp-bg-removed.png" type="image/png">
+    <title>SCP Foundation</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #dc2626;
+            --background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
+            --card-bg: rgba(10, 10, 10, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: #ffffff;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        #about-me-short {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .hero {
+            margin-top: 8rem;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .bio {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .bio h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            backdrop-filter: blur(5px);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .section {
+            margin: 6rem 0;
+            padding: 3rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .server-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .server-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--secondary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .server-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .server-card:hover::before {
+            left: 100%;
+        }
+
+        .server-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .server-role {
+            color: var(--secondary);
+            font-weight: 700;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 80%;
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color:rgb(30, 30, 243);
+        }
+
+        footer {
+            margin-top: 6rem;
+            padding: 3rem;
+            text-align: center;
+            background: var(--card-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        section:target {
+            background-color: rgba(37, 99, 235, 0.2);
+            transition: background-color 0.5s ease;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .skill-header h3 {
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-item span {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .skill-progress {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+                margin-top: 5rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section {
+                padding: 2rem;
+                margin: 4rem 0;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#servers">Servers</a></li>
+            <li><a href="#links">Links</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="hero" id="home">
+            <img src="scp-pfp.png" alt="Profile Picture" class="profile-img">
+            <div class="bio">
+                <h1>SCP Foundation</h1>
+                <p id="about-me-short">German guy and programmer<br><br></p>
+                <p class="description"><b>About me</b><br>19 year old german programmer and developer. Interested in creating bots with <code>discord.py</code>, making apps with <code>PyQt</code> and living life.</p>
+                
+                <div class="social-links" id="dc">
+                    <a href="https://discord.com/users/1144290929201647710" class="social-link" target="_blank">
+                        <i class='bx bxl-discord-alt'></i>
+                        Discord
+                    </a>
+                    <a href="https://github.com/scp-foundation-69" class="social-link" target="_blank">
+                        <i class='bx bxl-github'></i>
+                        GitHub
+                    </a>
+                    <a href="https://guns.lol/scp_foundation" class="social-link" target="_blank">
+                        <i class='bx bx-link-external'></i>
+                        guns.lol
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2>My skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class='bx bxs-component'></i>
+                        <h3>Frontend Development</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>HTML</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>CSS</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class='bx bx-server'></i>
+                        <h3>Backend Development</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Node.js</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Databases</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 68%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class='bx bx-shield-quarter'></i>
+                        <h3>Others</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>PyQt5</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>discord.py</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>PyQt6</span>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="servers">
+            <h2>Staff Positions</h2>
+            <div class="server-grid">
+                <div class="server-card">
+                    <h3>Shared Advertising</h3>
+                    <p class="server-role">Management</p>
+                    <p>Management of Shared Advertising (Discord Bot) and its server</p>
+                    <a href="https://discord.gg/hjKpmKfdu4" class="social-link" style="margin-top: 1rem;" target="_blank">
+                        <i class='bx bx-link'></i>
+                        Join Server
+                    </a>
+                </div>
+                <div class="server-card">
+                    <h3>Sans BrawlStars</h3>
+                    <p class="server-role">Head Moderator</p>
+                    <p><a href="https://youtube.com/sansbrawlstars1004" target="_blank">sans brawlstars</a>' Discord Server (7k+ members)</p>
+                    <a href="https://discord.gg/hjKpmKfdu4" class="social-link" style="margin-top: 1rem;" target="_blank">
+                        <i class='bx bx-link'></i>
+                        Join Server
+                    </a>
+                </div>
+                <div class="server-card">
+                    <h3>STMN Esports</h3>
+                    <p class="server-role">Moderator</p>
+                    <p><a href="https://stmn.gg" target="_blank">STMN Esport</a>'s official Discord server (2k+ members)</p>
+                    <a href="https://discord.gg/hjKpmKfdu4" class="social-link" style="margin-top: 1rem;" target="_blank">
+                        <i class='bx bx-link'></i>
+                        Join Server
+                    </a>
+                </div>
+            </div>
+            <p style="margin-top: 10px;"><b>Notice:</b> I am staff in more servers, not all are listed here</p>
+        </section>
+
+        <section class="section" id="links">
+            <h2>Bot projects</h2>
+            <div class="server-grid">
+                <div class="server-card">
+                    <h3>Giftzwerg Bot</h3>
+                    <p>A private fun, complex and utility bot</p>
+                    <a href="#" class="social-link" style="margin-top: 1rem;" target="_blank" aria-disabled="true">
+                        <i class='bx bx-link'></i>
+                        Private bot: unaddable
+                    </a>
+                </div>
+                <div class="server-card">
+                    <h3>STMN event bot</h3>
+                    <p>A event assistant bot for STMN Esports (private)</p>
+                    <a href="#" class="social-link" style="margin-top: 1rem;" target="_blank" aria-disabled="true">
+                        <i class='bx bx-link'></i>
+                        Privat bot: unaddable
+                    </a>
+                </div>
+                <div class="server-card">
+                    <h3>TemplateBot</h3>
+                    <p>A bot to create and apply Discord server templates with (private)</p>
+                    <a href="#" class="social-link" style="margin-top: 1rem;" target="_blank" aria-disabled="true">
+                        <i class='bx bx-link'></i>
+                        Private bot: unaddable
+                    </a>
+                </div>
+            </div>
+            <p style="margin-top: 10px;"><b>Notice:</b> not all of my projects are listed here</p>
+        </section>
+        <section class="section" id="contact">
+            <h2>Contact me</h2>
+            <div class="server-grid">
+                <div class="server-card">
+                    <h3>Email</h3>
+                    <p>If you have any questions or just want to chat, drop me an email!</p>
+                    <a href="mailto:scp.dscrd@gmail.com" class="social-link" style="margin-top: 1rem;">
+                      <i class="bx bx-envelope"></i>
+                      Send Email
+                    </a>
+                  </div>
+                  <div class="server-card">
+                    <h3>Discord</h3>
+                    <p>Slide me a DM or friend request on Discord (I might not immediately respond).</p>
+                    <a href="https://discord.com/users/1144290929201647710" class="social-link" style="margin-top: 1rem;" target="_blank">
+                      <i class="bx bxl-discord-alt"></i>
+                      Discord
+                    </a>
+                  </div>              
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; SCP Foundation 2025 - all rights reserved</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 80;
+                const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic header shadow
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            window.scrollY > 50 ? 
+                nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)' :
+                nav.style.boxShadow = 'none';
+        });
+
+        // Card hover effects
+        document.querySelectorAll('.server-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
