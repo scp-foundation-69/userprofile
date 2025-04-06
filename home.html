@@ -1,3 +1,5 @@
+<!--(c) SCP Foundation 2025-->
+<!--Credits for background video to: AnAnomolousWriter on Reddit-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +29,30 @@
             min-height: 100vh;
         }
 
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: fixed;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            z-index: 1;
+            margin-top: 25px;
         }
 
         nav {
@@ -354,6 +376,11 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="anim-bg.mp4" type="video/mp4">
+        </video>
+    </div>
     <nav>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -532,6 +559,37 @@
             </div>
             <p style="margin-top: 10px;"><b>Notice:</b> not all of my projects are listed here</p>
         </section>
+
+        <section class="section" id="links">
+            <h2>Application projects</h2>
+            <div class="server-grid">
+                <div class="server-card">
+                    <h3>JSON Visualizer</h3>
+                    <p>A program that makes JSON appear in a more human readable way</p>
+                    <a href="#" class="social-link" style="margin-top: 1rem;" target="_blank" aria-disabled="true">
+                        <i class='bx bx-download'></i>
+                        Download not available yet
+                    </a>
+                </div>
+                <div class="server-card">
+                    <h3>Discord Webhook Manager</h3>
+                    <p>A program to manage Discord webhooks with</p>
+                    <a href="#" class="social-link" style="margin-top: 1rem;" target="_blank" aria-disabled="true">
+                        <i class='bx bx-download'></i>
+                        Download not available yet
+                    </a>
+                </div>
+                <div class="server-card">
+                    <h3>GradientGenerator</h3>
+                    <p>An advanced gradient generator program</p>
+                    <a href="#" class="social-link" style="margin-top: 1rem;" target="_blank" aria-disabled="true">
+                        <i class='bx bx-download'></i>
+                        Download not available yet
+                    </a>
+                </div>
+            </div>
+            <p style="margin-top: 10px;"><b>Notice:</b> not all of my apps I developed are listed here</p>
+
         <section class="section" id="contact">
             <h2>Contact me</h2>
             <div class="server-grid">
