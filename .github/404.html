@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="scp-pfp-bg-removed.png" type="image/png">
+    <title>Error: 404</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #dc2626;
+            --background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
+            --card-bg: rgba(10, 10, 10, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: #ffffff;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .error-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-content {
+            max-width: 800px;
+            padding: 3rem;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+            animation: neonPulse 2s infinite alternate;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            background: rgba(37, 99, 235, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .home-button:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        @keyframes neonPulse {
+            from {
+                text-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(220, 38, 38, 0.6),
+                             0 0 50px rgba(220, 38, 38, 0.4);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h2 class="error-title">Not found</h2>
+            <p class="error-message">
+                The page / file / website you were trying to access was not found.
+            </p>
+            <a href="https://scp-foundation-69.github.io/home" class="home-button">
+                <i class='bx bx-arrow-back'></i>
+                Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 80;
+                const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            window.scrollY > 50 ? 
+                nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)' :
+                nav.style.boxShadow = 'none';
+        });
+    </script>
+</body>
+</html
