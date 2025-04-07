@@ -1,5 +1,6 @@
-<!--(c) SCP Foundation 2025-->
-<!--Credits for background video to: AnAnomalousWriter on Reddit-->
+<!-- (c) SCP Foundation 2025 -->
+<!-- Credits for background video to: AnAnomalousWriter on Reddit -->
+<!-- Credits for pfp to Rebellion-10 on spreadshirt -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -394,6 +395,8 @@
             <li><a href="#servers">Servers</a></li>
             <li><a href="#links">Links</a></li>
             <li><a href="#contact">Contact</a></li>
+             | 
+            <li><a href="#bg-audio">Control audio</a></li>
         </ul>
     </nav>
     
@@ -411,12 +414,16 @@
                         <i class='bx bxl-discord-alt'></i>
                         Discord
                     </a>
+                    <a href="https://youtube.com/@scpfoundation_dc" class="social-link" target="_blank">
+                        <i class="bx bxl-youtube"></i>
+                        YouTube
+                    </a>
                     <a href="https://github.com/scp-foundation-69" class="social-link" target="_blank">
                         <i class='bx bxl-github'></i>
                         GitHub
                     </a>
                     <a href="https://guns.lol/scp_foundation" class="social-link" target="_blank">
-                        <i class='bx bx-link-external'></i>
+                        <i class='bx bx-link'></i>
                         guns.lol
                     </a>
                 </div>
@@ -518,7 +525,7 @@
                 <div class="server-card">
                     <h3>Sans BrawlStars</h3>
                     <p class="server-role">Head Moderator</p>
-                    <p><a href="https://youtube.com/sansbrawlstars1004" target="_blank">sans brawlstars</a>' Discord Server (7k+ members)</p>
+                    <p><a href="https://youtube.com/@cutesansbrawlstars1004" target="_blank">sans brawlstars</a>' Discord Server (7k+ members)</p>
                     <a href="https://discord.gg/hjKpmKfdu4" class="social-link" style="margin-top: 1rem;" target="_blank">
                         <i class='bx bx-link'></i>
                         Join Server
@@ -619,6 +626,7 @@
                     </a>
                   </div>              
             </div>
+            <p style="margin-top: 10px;"><b>If you want to leave feedback or a suggestion, you can do this too.</b></p>
         </section>
     </div>
 
@@ -664,6 +672,19 @@
                 card.style.setProperty('--y', `${y}px`);
             });
         });
+
+        window.addEventListener('load', () => {
+            console.warn("[WARNING]: Do not paste code here you don't understand, it could make Attackers steal your identity with a 'Self-XSS-Attack'");
+        });
+
+        const audio = document.getElementById("bg-audio");
+  
+        function enableAudio() {
+            audio.play();
+            document.removeEventListener("click", enableAudio);
+        }
+
+        document.addEventListener("click", enableAudio);
     </script>
 </body>
 </html>
