@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="scp-pfp-bg-removed.png" type="image/png">
+    <link rel="icon" href="imgs/scp-pfp-bg-removed.png" type="image/png">
     <title>SCP Foundation</title>
     <style>
         :root {
@@ -135,8 +135,8 @@
         }
 
         .bio h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3.7rem;
+            margin-bottom: 0.9rem;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -330,6 +330,12 @@
             transition: width 0.5s ease;
         }
 
+        audio {
+            margin-top: 15px;       
+            padding: 0;      
+            height: 50px;    
+        }
+
         .skill-card::before {
             content: '';
             position: absolute;
@@ -379,7 +385,7 @@
 <body>
     <div class="video-background">
         <video autoplay loop muted>
-            <source src="anim-bg.mp4" type="video/mp4">
+            <source src="imgs/anim-bg.mp4" type="video/mp4">
         </video>
     </div>
     <nav>
@@ -390,14 +396,15 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+    
 
     <div class="container">
         <section class="hero" id="home">
-            <img src="scp-pfp.png" alt="Profile Picture" class="profile-img">
+            <img src="imgs/scp-pfp.png" alt="Profile Picture" class="profile-img">
             <div class="bio">
                 <h1>SCP Foundation</h1>
                 <p id="about-me-short">German guy and programmer<br><br></p>
-                <p class="description"><b>About me</b><br>German programmer and developer. Interested in creating bots with <code>discord.py</code>, making apps with <code>PyQt</code> and living life.<br><small><i>My favourite number is 69</i></small></p>
+                <p class="description"><b>About me</b><br>German programmer and developer. Interested in creating bots with <code>discord.py</code>, making apps with <code>PyQt</code> and living life.<br><small><i>My favourite number is 69</i> | people call me just 'scp'</small></p>
                 
                 <div class="social-links" id="dc">
                     <a href="https://discord.com/users/1144290929201647710" class="social-link" target="_blank">
@@ -590,6 +597,7 @@
                 </div>
             </div>
             <p style="margin-top: 10px;"><b>Notice:</b> not all of my apps I developed are listed here</p>
+        </section>
 
         <section class="section" id="contact">
             <h2>Contact me</h2>
@@ -615,7 +623,11 @@
     </div>
 
     <footer id="contact">
-        <p>&copy; SCP Foundation 2025 - all rights reserved</p>
+        <p>&copy; SCP Foundation 2025 - all rights reserved | <a href="#home">Back to top</a></p>
+        <audio id="bg-audio" controls>
+            <source src="imgs/bg-audio-me-gustas-tu.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
     </footer>
 
     <script>
