@@ -1,5 +1,7 @@
-## Hi!
-# SCP Foundation's about me site
+# Hi and welcome!
+## This is SCP Foundation's about me page.
 
-You want to move to my main HTML site?
-Try going to scp-foundation-69.github.io/userprofile/home :D
+Info:
+Wrong turn or at https://scp-foundation-69.github.io? Try going to https://scp-foundation-69.github.io/home.html :D
+
+Thanks for visiting my page!
