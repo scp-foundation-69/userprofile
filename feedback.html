@@ -224,23 +224,24 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#footer">Page's bottom</a></li>
         </ul>
-    </nav>
+    </nav>7
 
     <div class="container">
         <section class="section">
-            <form action="send_feedback.php" method="POST">
+            <form>
                 <h2>Send Feedback</h2>
+                <p>Was tested and did not make it.</p>
 
-                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="name" placeholder="Your Name" required disabled>
 
-                <input type="email" name="email" placeholder="Your Email">
+                <input type="email" name="email" placeholder="Your Email" disabled>
 
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <textarea name="message" rows="5" placeholder="Your Message" required disabled></textarea>
 
                 <!-- Honeypot anti-spam field -->
                 <input type="text" name="website" style="display: none;">
 
-                <button type="submit">Send Feedback</button>
+                <button type="submit" disabled>Send Feedback</button>
             </form>
         </section>
     </div>
