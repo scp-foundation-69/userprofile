@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,12 @@
     <style>
         :root {
             --primary: #2563eb;
-            --secondary: #dc2626;
+            --secondary: #000000;
             --background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
             --card-bg: rgba(10, 10, 10, 0.8);
+            --accent-gradient: linear-gradient(45deg, var(--primary), var(--secondary));
+            --hover-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+            --blue-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
         }
 
         * {
@@ -32,14 +36,14 @@
             min-height: 100vh;
         }
 
-        
+
         .video-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; 
+            z-index: -1;
             overflow: hidden;
         }
 
@@ -139,7 +143,7 @@
         .bio h1 {
             font-size: 3.7rem;
             margin-bottom: 0.9rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -168,7 +172,7 @@
         .social-link:hover {
             background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            box-shadow: var(--blue-shadow);
         }
 
         .section {
@@ -191,7 +195,7 @@
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 15px;
-            border-left: 5px solid var(--secondary);
+            border-left: 5px solid var(--primary);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -204,12 +208,10 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
             transition: 0.5s;
         }
 
@@ -219,11 +221,11 @@
 
         .server-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+            box-shadow: var(--blue-shadow);
         }
 
         .server-role {
-            color: var(--secondary);
+            color: #ffffff;
             font-weight: 700;
             margin: 1rem 0;
             font-size: 1.1rem;
@@ -251,7 +253,7 @@
 
         a {
             text-decoration: none;
-            color:rgb(30, 30, 243);
+            color: rgb(30, 30, 243);
         }
 
         footer {
@@ -286,7 +288,7 @@
 
         .skill-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+            box-shadow: var(--blue-shadow);
         }
 
         .skill-header {
@@ -298,12 +300,12 @@
 
         .skill-header i {
             font-size: 2.5rem;
-            color: var(--secondary);
+            color: #ffffff;
         }
 
         .skill-header h3 {
             font-size: 1.5rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -327,15 +329,15 @@
 
         .progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: var(--accent-gradient);
             border-radius: 4px;
             transition: width 0.5s ease;
         }
 
         audio {
-            margin-top: 15px;       
-            padding: 0;      
-            height: 50px;    
+            margin-top: 15px;
+            padding: 0;
+            height: 50px;
         }
 
         .skill-card::before {
@@ -345,12 +347,10 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
             transition: 0.5s;
         }
 
@@ -372,7 +372,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 99999; 
+            z-index: 99999;
         }
 
         .popup-box {
@@ -382,7 +382,8 @@
             width: 300px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             text-align: center;
-            z-index: 100000; /* even higher */
+            z-index: 100000;
+            /* even higher */
         }
 
         .popup-box button {
@@ -430,6 +431,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="video-background">
         <video autoplay loop muted>
@@ -438,10 +440,11 @@
     </div>
     <div class="popup-overlay" id="popup">
         <div class="popup-box">
-          <p id="popup-text">Warning: the website does not yet fully support mobile. Accessing this from your phone might look buggy.</p>
-          <button onclick="closePopup()">Close</button>
+            <p id="popup-text">Warning: the website does not yet fully support mobile. Accessing this from your phone
+                might look buggy.</p>
+            <button onclick="closePopup()">Close</button>
         </div>
-      </div>
+    </div>
     <nav>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -453,15 +456,17 @@
             <li><a href="#bg-audio">Control audio </a></li>
         </ul>
     </nav>
-    
+
 
     <div class="container">
         <section class="hero" id="home">
             <img src="imgs/scp-pfp.png" alt="Profile Picture" class="profile-img">
             <div class="bio">
                 <h1>SCP Foundation</h1>
-                <p class="description"><b>About me</b><br>German programmer and developer. Interested in creating bots with <code>discord.py</code>, making apps with <code>PyQt</code> and living life.<br><small><i>My favourite number is 69</i> | people call me just 'scp'</small></p>
-                
+                <p class="description"><b>About me</b><br>German programmer and developer. Interested in creating bots
+                    with <code>discord.py</code>, making apps with <code>PyQt</code> and living life.<br><small><i>My
+                            favourite number is 69</i> | people call me just 'scp'</small></p>
+
                 <div class="social-links" id="dc">
                     <a href="https://discord.com/users/1144290929201647710" class="social-link" target="_blank">
                         <i class='bx bxl-discord-alt'></i>
@@ -512,7 +517,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="skill-card">
                     <div class="skill-header">
                         <i class='bx bx-server'></i>
@@ -533,7 +538,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="skill-card">
                     <div class="skill-header">
                         <i class='bx bx-shield-quarter'></i>
@@ -570,7 +575,8 @@
                     <h3>Shared Advertising</h3>
                     <p class="server-role">Management</p>
                     <p>Management of Shared Advertising (Discord Bot) and its support server</p>
-                    <a href="https://discord.gg/4qUu5pb2kp" class="social-link" style="margin-top: 1rem;" target="_blank">
+                    <a href="https://discord.gg/4qUu5pb2kp" class="social-link" style="margin-top: 1rem;"
+                        target="_blank">
                         <i class='bx bx-link'></i>
                         Join Server
                     </a>
@@ -578,8 +584,10 @@
                 <div class="server-card">
                     <h3>Sans BrawlStars</h3>
                     <p class="server-role">Head Moderator</p>
-                    <p><a href="https://youtube.com/@cutesansbrawlstars1004" target="_blank">sans brawlstars</a>' Discord Server (7k+ members)</p>
-                    <a href="https://discord.gg/xMp5fSMNv4" class="social-link" style="margin-top: 1rem;" target="_blank">
+                    <p><a href="https://youtube.com/@cutesansbrawlstars1004" target="_blank">sans brawlstars</a>'
+                        Discord Server (7k+ members)</p>
+                    <a href="https://discord.gg/xMp5fSMNv4" class="social-link" style="margin-top: 1rem;"
+                        target="_blank">
                         <i class='bx bx-link'></i>
                         Join Server
                     </a>
@@ -587,8 +595,10 @@
                 <div class="server-card">
                     <h3>STMN Esports</h3>
                     <p class="server-role">Moderator</p>
-                    <p><a href="https://stmn.gg" target="_blank">STMN Esport</a>'s official Discord server (2k+ members)</p>
-                    <a href="https://discord.gg/hjKpmKfdu4" class="social-link" style="margin-top: 1rem;" target="_blank">
+                    <p><a href="https://stmn.gg" target="_blank">STMN Esport</a>'s official Discord server (2k+ members)
+                    </p>
+                    <a href="https://discord.gg/hjKpmKfdu4" class="social-link" style="margin-top: 1rem;"
+                        target="_blank">
                         <i class='bx bx-link'></i>
                         Join Server
                     </a>
@@ -666,18 +676,19 @@
                     <h3>Email</h3>
                     <p>If you have any questions or just want to chat, drop me an email!</p>
                     <a href="mailto:scp.dscrd@gmail.com" class="social-link" style="margin-top: 1rem;">
-                      <i class="bx bx-envelope"></i>
-                      Send Email
+                        <i class="bx bx-envelope"></i>
+                        Send Email
                     </a>
-                  </div>
-                  <div class="server-card">
+                </div>
+                <div class="server-card">
                     <h3>Discord</h3>
                     <p>Slide me a DM or friend request on Discord (I might not immediately respond).</p>
-                    <a href="https://discord.com/users/1144290929201647710" class="social-link" style="margin-top: 1rem;" target="_blank">
-                      <i class="bx bxl-discord-alt"></i>
-                      Discord
+                    <a href="https://discord.com/users/1144290929201647710" class="social-link"
+                        style="margin-top: 1rem;" target="_blank">
+                        <i class="bx bxl-discord-alt"></i>
+                        Discord
                     </a>
-                  </div>              
+                </div>
             </div>
             <p style="margin-top: 10px;"><b>If you want to leave feedback or a suggestion, you can do this too.</b></p>
         </section>
@@ -710,7 +721,7 @@
         // Dynamic header shadow
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            window.scrollY > 50 ? 
+            window.scrollY > 50 ?
                 nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)' :
                 nav.style.boxShadow = 'none';
         });
@@ -731,7 +742,7 @@
         });
 
         const audio = document.getElementById("bg-audio");
-  
+
         function enableAudio() {
             audio.play();
             document.removeEventListener("click", enableAudio);
@@ -751,4 +762,5 @@
         });
     </script>
 </body>
+
 </html>
