@@ -302,7 +302,7 @@
 
                 <div class="form-group">
                     <label for="feedback-type">Feedback Type</label>
-                    <select id="feedback-type" name="type" disabled>
+                    <select id="feedback-type" name="type">
                         <option value="general">General Feedback</option>
                         <option value="bug">Bug Report</option>
                         <option value="feature">Feature Request</option>
@@ -310,12 +310,12 @@
                     </select>
                 </div>
 
-                <input type="text" name="name" placeholder="Your Name" required disabled>
+                <input type="text" name="name" placeholder="Your Name" required>
 
-                <input type="email" name="email" placeholder="Your Email" disabled>
+                <input type="email" name="email" placeholder="Your Email">
 
                 <div class="form-group">
-                    <textarea name="message" rows="5" placeholder="Your Message" required disabled></textarea>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                     <div class="char-counter">0/500</div>
                 </div>
 
@@ -324,7 +324,7 @@
 
                 <div class="form-message" style="display: none;"></div>
 
-                <button type="submit" disabled>
+                <button type="submit">
                     <span class="button-text">Send Feedback</span>
                     <span class="button-loader" style="display: none;">Sending...</span>
                 </button>
