@@ -208,6 +208,74 @@
                 padding: 0 1rem;
             }
         }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--blue-shadow);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .char-counter {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+
+        .form-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-message.success {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #00ff00;
+        }
+
+        .form-message.error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff0000;
+        }
+
+        .button-loader {
+            display: none;
+        }
+
+        button.loading .button-text {
+            display: none;
+        }
+
+        button.loading .button-loader {
+            display: inline;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -232,16 +300,34 @@
                 <h2>Send Feedback</h2>
                 <p>Was tested and did not make it.</p>
 
+                <div class="form-group">
+                    <label for="feedback-type">Feedback Type</label>
+                    <select id="feedback-type" name="type" disabled>
+                        <option value="general">General Feedback</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="feature">Feature Request</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
                 <input type="text" name="name" placeholder="Your Name" required disabled>
 
                 <input type="email" name="email" placeholder="Your Email" disabled>
 
-                <textarea name="message" rows="5" placeholder="Your Message" required disabled></textarea>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required disabled></textarea>
+                    <div class="char-counter">0/500</div>
+                </div>
 
                 <!-- Honeypot anti-spam field -->
                 <input type="text" name="website" style="display: none;">
 
-                <button type="submit" disabled>Send Feedback</button>
+                <div class="form-message" style="display: none;"></div>
+
+                <button type="submit" disabled>
+                    <span class="button-text">Send Feedback</span>
+                    <span class="button-loader" style="display: none;">Sending...</span>
+                </button>
             </form>
         </section>
     </div>
@@ -273,6 +359,33 @@
                 nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)' :
                 nav.style.boxShadow = 'none';
         });
+
+        const messageTextarea = document.querySelector('textarea[name="message"]');
+        const charCounter = document.querySelector('.char-counter');
+        const form = document.querySelector('form');
+        const submitButton = document.querySelector('button[type="submit"]');
+        const formMessage = document.querySelector('.form-message');
+
+        messageTextarea.addEventListener('input', function () {
+            const currentLength = this.value.length;
+            charCounter.textContent = `${currentLength}/500`;
+
+            if (currentLength > 500) {
+                this.value = this.value.substring(0, 500);
+                charCounter.textContent = '500/500';
+            }
+        });
+
+        function showMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+        }
+
+        function setLoading(isLoading) {
+            submitButton.disabled = isLoading;
+            submitButton.classList.toggle('loading', isLoading);
+        }
     </script>
 </body>
 
