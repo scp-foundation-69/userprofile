@@ -452,9 +452,12 @@
 
 <body>
     <div class="video-background">
-        <video autoplay loop muted playsinline webkit-playsinline>
+        <video autoplay loop muted playsinline webkit-playsinline id="v">
             <source src="imgs/anim-bg.mp4" type="video/mp4">
         </video>
+        <script>
+            document.getElementById('v').play();
+        </script>
     </div>
     <nav>
         <ul class="nav-links">
@@ -744,7 +747,7 @@
             console.log("[WARNING]: Do not paste code here you don't understand, it could make Attackers steal your identity with a 'Self-XSS-Attack'");
         });
         window.addEventListener('load', () => {
-            video = document.querySelector('video-background');
+            video = document.getElementById('v');
             video.play();
             video.muted = true;
             video.loop = true;
