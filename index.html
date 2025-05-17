@@ -744,8 +744,13 @@
         window.addEventListener('load', () => {
             console.log("[WARNING]: Do not paste code here you don't understand, it could make Attackers steal your identity with a 'Self-XSS-Attack'");
         });
-
-        // Removed popup functions and showPopup on load
+        window.addEventListener('load', () => {
+            video = document.querySelector('video-background');
+            video.play();
+            video.muted = true;
+            video.loop = true;
+            video.autoplay = true;
+        })
     </script>
 </body>
 
