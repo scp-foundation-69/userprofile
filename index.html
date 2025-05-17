@@ -452,8 +452,6 @@
             <li><a href="#bots">Bot projects</a></li>
             <li><a href="#apps">App projects</a></li>
             <li><a href="#contact">Contact</a></li>
-            |
-            <li><a href="#bg-audio">Control audio </a></li>
         </ul>
     </nav>
 
@@ -463,6 +461,7 @@
             <img src="imgs/scp-pfp.png" alt="Profile Picture" class="profile-img">
             <div class="bio">
                 <h1>SCP Foundation</h1>
+                <p>The user, not the ...</p>
                 <div class="social-links" id="dc">
                     <a href="https://discord.com/users/1144290929201647710" class="social-link" target="_blank">
                         <i class='bx bxl-discord-alt'></i>
@@ -693,12 +692,7 @@
     </div>
 
     <footer id="footer">
-        <p>&copy; SCP Foundation 2025 - all rights reserved | <a href="#home">Back to top</a> | <a
-                href="changelog.html">Changelog</a></p>
-        <audio id="bg-audio" controls autoplay>
-            <source src="imgs/bg-audio-me-gustas-tu.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+        <p>&copy; SCP Foundation 2025 - all rights reserved | <a href="#home">Back to top</a></p>	
     </footer>
 
     <script>
@@ -739,15 +733,6 @@
         window.addEventListener('load', () => {
             console.log("[WARNING]: Do not paste code here you don't understand, it could make Attackers steal your identity with a 'Self-XSS-Attack'");
         });
-
-        const audio = document.getElementById("bg-audio");
-
-        function enableAudio() {
-            audio.play();
-            document.removeEventListener("click", enableAudio);
-        }
-
-        document.addEventListener("click", enableAudio);
 
         function showPopup() {
             document.getElementById("popup").style.display = "flex";
